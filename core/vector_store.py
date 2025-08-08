@@ -20,13 +20,14 @@ def initialize_vector_store(data):
     try:
         # Initialize embeddings using Google Generative AI
         embeddings = GoogleGenerativeAIEmbeddings(
-            api_key=config["google_api_key"]
+            google_api_key=config["google_api_key"],
+            model="models/embedding-001" 
         )
         # Create chunks of text from the data
         texts = []
         for item in data:
             # Divide the text into paragraphs
-            paragraphs = item['text'].split('\n\n')
+            paragraphs = item['content'].split('\n\n')
             for paragraph in paragraphs:
                 if paragraph.strip():
                     texts.append(paragraph.strip())

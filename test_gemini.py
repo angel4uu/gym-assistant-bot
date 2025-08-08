@@ -10,7 +10,7 @@ def test_gemini():
     """
     chat = GoogleGenerativeAI(
         model="gemini-1.5-flash",
-        api_key=config["google_api_key"]
+        google_api_key=config["google_api_key"]
     )
 
     response = chat.invoke(
