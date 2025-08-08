@@ -1,6 +1,7 @@
 streamlit
 langchain
-langchain-openai
+#langchain-openai
+langchain-google-genai
 langchain-chroma
 chromadb
 pdfplumber
