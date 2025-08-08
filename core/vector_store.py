@@ -64,8 +64,13 @@ def load_vector_store():
         if not os.path.exists(VECTOR_STORE_DIR):
             raise FileNotFoundError(f"Vector store directory {VECTOR_STORE_DIR} does not exist.")
         
+        # Initialize embeddings using Google Generative AI
+        embeddings = GoogleGenerativeAIEmbeddings(
+            google_api_key=config["google_api_key"],
+            model="models/embedding-001"
+        )
         # Load the vector store from the persisted directory
-        vector_store = Chroma(persist_directory=VECTOR_STORE_DIR)
+        vector_store = Chroma(persist_directory=VECTOR_STORE_DIR, embedding_function=embeddings)
         print(f"Vector store loaded from {VECTOR_STORE_DIR}")
         return vector_store
     

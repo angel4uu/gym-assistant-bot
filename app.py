@@ -2,6 +2,7 @@ import streamlit as st
 from core.vector_store import initialize_vector_store
 from core.data_loader import load_data
 import asyncio
+from core.backend import handle_query
 
 #Configure asyncio event loop for Streamlit compatibility
 try:
@@ -84,8 +85,8 @@ user_input = st.chat_input("Escribe tu mensaje aquí...")
 # Procesar mensaje del usuario
 if user_input:
     st.session_state.messages.append({"role": "user", "content": user_input})
-    #response = handle_query(user_input, st.session_state.messages)
-    #st.session_state.messages.append({"role": "bot", "content": response})
+    response = handle_query(user_input, st.session_state.messages)
+    st.session_state.messages.append({"role": "bot", "content": response})
 
 # Mostrar historial del chat con mejor formato
 for message in st.session_state.messages:
