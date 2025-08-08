@@ -1,7 +1,12 @@
 import os
 import pdfplumber
 
+
 def load_data():
+    """
+    Carga los datos del PDF y los organiza en secciones.
+    Cada sección se identifica por un título que comienza con un número.
+    """
     try:
       data= []
       current_section=""
