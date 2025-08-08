@@ -4,8 +4,8 @@ import pdfplumber
 
 def load_data():
     """
-    Carga los datos del PDF y los organiza en secciones.
-    Cada sección se identifica por un título que comienza con un número.
+    Loads data from a PDF file and organizes it into sections.
+    Each section is identified by a title that starts with a number.
     """
     try:
       data= []

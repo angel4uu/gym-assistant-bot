@@ -5,6 +5,9 @@ with open("config.yaml", "r") as f:
     config = yaml.safe_load(f)
 
 def test_gemini():
+    """ 
+    Test function to invoke Google Gemini API
+    """
     chat = GoogleGenerativeAI(
         model="gemini-1.5-flash",
         api_key=config["google_api_key"]
