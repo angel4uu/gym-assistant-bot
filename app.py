@@ -1,7 +1,23 @@
 import streamlit as st
+from core.vector_store import initialize_vector_store
+from core.data_loader import load_data
+import asyncio
+
+#Configure asyncio event loop for Streamlit compatibility
+try:
+    asyncio.get_running_loop()
+except RuntimeError:
+    asyncio.set_event_loop(asyncio.new_event_loop())
 
 # Configuración de la página
 st.set_page_config(page_title="Gym Assistant Bot", page_icon="🤖")
+
+data = load_data()
+if data:
+    print("\n=== Inicializando Vector Store ===")
+    vector_store = initialize_vector_store(data)
+else:
+    print("ERROR: No se pudieron cargar los datos del PDF")
 
 # Estilos personalizados 
 st.markdown("""
