@@ -1,7 +1,6 @@
 import os
 import pdfplumber
 
-
 def load_data():
     """
     Loads data from a PDF file and organizes it into sections.
@@ -13,7 +12,7 @@ def load_data():
       current_title=""
 
       # Abrir el archivo PDF
-      with pdfplumber.open(os.path.join("data", "Gym_dream.pdf")) as pdf:
+      with pdfplumber.open("data/Gym_dream.pdf") as pdf:
 
         # Dividir el PDF en páginas y extraer texto
         text = ""
