@@ -33,7 +33,7 @@ def load_data():
               if current_section:
                 data.append({
                     "title": current_title,
-                    "content": current_section.strip()
+                    "content": f"{current_title}\n{current_section.strip()}"
                 })
               # Iniciar una nueva sección
               current_title = line
@@ -52,7 +52,7 @@ def load_data():
       # Imprimir las secciones procesadas
       print("\n=== Secciones procesadas ===")
       for i,item in enumerate(data, start=1):
-          print(f"\n\n{i}. {item['title']}")
+          print(f"\n\nSeccion {i}")
           print(f"\n{item['content'][:50]}...")  # Mostrar solo los primeros 50 caracteres del contenido
       print("\n============================\n")
 
